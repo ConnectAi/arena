@@ -103,6 +103,10 @@
                 {{/if}}
               </h4>
             </a>
+
+            {{#if this.duration}}
+              <span>({{this.duration}} seconds)</span>
+            {{/if}}
             <span class="pull-right">{{moment this.timestamp "YYYY-MM-DD HH:mm"}}</span>
 
             <div id="collapse{{hashIdAttr this.id}}" class="collapse">

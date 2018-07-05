@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const moment = require('moment');
 const { BEE_STATES, BULL_STATES } = require('../helpers/queueHelpers');
 
 /**
@@ -97,6 +98,12 @@ async function _html(req, res) {
 
   // Filter out Bee jobs that have already been removed by the time the promise resolves
   jobs = jobs.filter((job) => job);
+
+  jobs.forEach((job) => {
+    if (job.finishedOn) {
+      job.duration = moment.duration(job.finishedOn - job.processedOn).asSeconds();
+    }
+  });
 
   let pages = _.range(page - 6, page + 7)
     .filter((page) => page >= 1);
