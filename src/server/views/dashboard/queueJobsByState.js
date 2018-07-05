@@ -91,12 +91,12 @@ async function _html(req, res) {
     }
 
     jobs = await queue.getJobs(state, page);
-
-    // Filter out Bee jobs that have already been removed by the time the promise resolves
-    jobs = jobs.filter((job) => job);
   } else {
     jobs = await queue[`get${_.capitalize(state)}`](startId, endId);
   }
+
+  // Filter out Bee jobs that have already been removed by the time the promise resolves
+  jobs = jobs.filter((job) => job);
 
   let pages = _.range(page - 6, page + 7)
     .filter((page) => page >= 1);
