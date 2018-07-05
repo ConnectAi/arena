@@ -40,7 +40,7 @@ const helpers = {
   },
 
   encodeIdAttr(id) {
-    return id.replace(/:| /g, '');
+    return (typeof id === 'string') ? id.replace(/:| /g, '') : id;
   }
 };
 
