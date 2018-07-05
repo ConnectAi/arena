@@ -103,6 +103,8 @@
                 {{/if}}
               </h4>
             </a>
+            <span class="pull-right">{{moment this.timestamp "YYYY-MM-DD HH:mm"}}</span>
+
             <div id="collapse{{hashIdAttr this.id}}" class="collapse">
               {{~> dashboard/jobDetails this basePath=../basePath displayJobInline=true queueName=../queueName queueHost=../queueHost jobState=../state }}
             </div>
