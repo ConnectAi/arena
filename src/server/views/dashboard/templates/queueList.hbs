@@ -6,7 +6,12 @@
     <ul class="list-group">
       {{#each queues}}
         <li class="list-group-item">
-          <a href="{{ ../basePath }}/{{ encodeURI this.hostId }}/{{ encodeURI this.name }}">{{ this.hostId }}/{{ this.name }}</a>
+          <a href="{{ ../basePath }}/{{ encodeURI this.hostId }}/{{ encodeURI this.name }}">
+            {{ this.hostId }}
+            <code class="pull-right">
+              {{ this.name }}
+            </code>
+          </a>
         </li>
       {{/each}}
     </ul>
